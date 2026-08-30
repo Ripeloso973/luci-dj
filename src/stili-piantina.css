@@ -1,0 +1,170 @@
+/* ============================================================
+   AGGIUNGI QUESTO IN FONDO A src/index.css
+   ============================================================ */
+
+.piantina {
+  margin-top: 16px;
+  padding: 16px;
+  background: var(--superficie);
+  border: 1px solid var(--bordo);
+  border-radius: var(--r-card);
+}
+
+.piantina-barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.viste-piccole {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: var(--sfondo);
+  border: 1px solid var(--bordo);
+  border-radius: 999px;
+}
+
+.vista-mini {
+  padding: 5px 14px;
+  background: none;
+  border: none;
+  border-radius: 999px;
+  color: var(--testo-medio);
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+
+.vista-mini[aria-selected='true'] { background: var(--superficie-3); color: var(--testo); }
+
+.tela {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--sfondo);
+  border-radius: var(--r-input);
+  touch-action: none;          /* il trascinamento non deve far scorrere la pagina */
+  user-select: none;
+}
+
+/* ---- la sala ---- */
+.pavimento { fill: var(--superficie-2); }
+.griglia-linea { stroke: var(--bordo); stroke-width: 1; }
+.bordo-sala { fill: none; stroke: var(--bordo-vivo); stroke-width: 1.6; }
+
+.montanti line,
+.montanti polygon {
+  fill: none;
+  stroke: var(--bordo);
+  stroke-width: 1.2;
+  stroke-dasharray: 4 4;
+}
+
+/* ---- apparecchi ---- */
+.apparecchio { cursor: grab; }
+.apparecchio:active { cursor: grabbing; }
+
+.faccia-alta {
+  fill: var(--tinta);
+  stroke: rgba(0,0,0,.45);
+  stroke-width: .8;
+}
+
+.faccia-sx { fill: var(--tinta); opacity: .5; }
+.faccia-dx { fill: var(--tinta); opacity: .72; }
+
+.filo {
+  stroke: var(--tinta);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+  opacity: .5;
+}
+
+.ombra { fill: #000; opacity: .28; }
+
+.apparecchio.scelto .faccia-alta {
+  stroke: var(--ambra);
+  stroke-width: 2;
+}
+
+.apparecchio:hover .faccia-alta { stroke: var(--testo); stroke-width: 1.4; }
+
+.etichetta-piantina {
+  fill: var(--testo);
+  font-family: var(--mono);
+  font-size: 11px;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: var(--sfondo);
+  stroke-width: 3.5;
+}
+
+/* ---- pannello della selezione ---- */
+.pannello-sel {
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  padding: 12px 14px;
+  background: var(--superficie-2);
+  border: 1px solid var(--bordo-vivo);
+  border-radius: var(--r-input);
+}
+
+.sel-nome { flex: 1 1 150px; min-width: 0; }
+.sel-nome b { display: block; font-size: 14px; font-weight: 600; }
+
+.sel-nome em {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-style: normal;
+  color: var(--testo-debole);
+}
+
+.campo-mini { display: flex; flex-direction: column; gap: 5px; }
+.campo-mini.larga { flex: 1 1 190px; }
+
+.campo-mini span {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--testo-debole);
+}
+
+.campo-mini input[type='number'] {
+  width: 82px;
+  padding: 7px 10px;
+  background: var(--sfondo);
+  border: 1px solid var(--bordo);
+  border-radius: 7px;
+  color: var(--testo);
+  font-family: var(--mono);
+  font-size: 13px;
+}
+
+.campo-mini input[type='range'] { width: 100%; accent-color: var(--ambra); }
+
+/* ---- ricerca con jolly ---- */
+.nota code {
+  padding: 1px 5px;
+  background: var(--superficie-3);
+  border-radius: 3px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ambra);
+}
+
+.nota-tagliata {
+  margin: 0;
+  padding: 9px 13px;
+  border-top: 1px solid var(--bordo);
+  font-size: 11.5px;
+  color: var(--testo-debole);
+}
